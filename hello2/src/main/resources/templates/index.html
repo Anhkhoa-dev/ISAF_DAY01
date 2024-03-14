@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Account List</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Full name</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="item: ${accounts }" th:object=${item}>
+				<td th:text=*{id}>Id</td>
+				<td th:text=*{email}>Email</td>
+				<td th:text=*{phone}>Phone</td>
+				<td th:text=*{fullname}>Full name</td>
+				<td ><a th:href="@{/account/update/{id}(id=${item.id})}">Update</a></td>
+			</tr>
+		</tbody>
+	
+	
+	</table>
+
+</body>
+</html>
